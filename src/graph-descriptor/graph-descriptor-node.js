@@ -10,7 +10,7 @@ module.exports = class GraphDescriptorNode extends React.Component {
 
   constructor(props) {
     super(props);
-    const isCollapsed = true;
+    const isCollapsed = !this.props.expanded;
     this.state = { isCollapsed };
   }
 
@@ -123,6 +123,7 @@ module.exports = class GraphDescriptorNode extends React.Component {
               steps={substeps}
               path={path.concat(subchild)}
               onLeafNodeClick={this.props.onLeafNodeClick}
+              expanded={this.props.expanded}
             />;
           })}
         </ul>

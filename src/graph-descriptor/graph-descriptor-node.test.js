@@ -19,17 +19,33 @@ describe('graph-descriptor-node', () => {
     const $ = $ify([{ route: 'foo.bar' }]);
     assert.strictEqual($(':root')[0].name, 'li');
   });
+
+  it('should render collapsed by default', () => {
+    const $ = $ify([
+      { route: 'foo.bar.baz' },
+    ], { /* expanded: true */ });
+    assert.strictEqual($('li li').length, 0);
+  });
+
+  it('should render expanded if prop passed', () => {
+    const $ = $ify([
+      { route: 'foo.bar.baz' },
+    ], { expanded: true });
+    assert.strictEqual($('li li li').length, 1);
+  });
 });
 
-function stringify(routes) {
+function stringify(routes, passedProps) {
   const descriptor = docRouter.createClass(routes).descriptor();
-  const reactEl = React.createElement(GraphDescriptorNode, { node: descriptor });
+  const child = descriptor.children[0];
+  const props = Object.assign({}, passedProps, { node: child, path: [child], steps: [true] });
+  const reactEl = React.createElement(GraphDescriptorNode, props);
   const html = reactDomServer.renderToStaticMarkup(reactEl);
   return html;
 }
 
-function $ify(routes) {
-  const html = stringify(routes);
+function $ify(routes, passedProps) {
+  const html = stringify(routes, passedProps);
   const $ = cheerio.load(html);
   return $;
 }

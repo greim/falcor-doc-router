@@ -27,6 +27,7 @@ module.exports = class GraphDescriptor extends React.Component {
             steps={[idx === children.length - 1]}
             path={[child]}
             onLeafNodeClick={this.props.onLeafNodeClick}
+            expanded={this.props.expanded}
           />
         )}
       </ul>
