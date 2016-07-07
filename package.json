@@ -1,6 +1,6 @@
 {
   "name": "falcor-doc-router",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Self-documenting Falcor router",
   "main": "src/index.js",
   "scripts": {
