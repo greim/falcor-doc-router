@@ -39,7 +39,7 @@ var html = reactDomServer.renderToStaticMarkup(reactEl);
 ## Annotations
 
 In order for your JSON graph documentation to contain type information, you need to provide a `returns` annotation for each route.
-These are only consumed by falcor-doc-router, and are ignored by Falcor.
+These are purely advisory and only affect falcor-doc-router, and are otherwise ignored by Falcor and Falcor Router.
 For example:
 
 ```js

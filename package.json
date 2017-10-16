@@ -1,6 +1,6 @@
 {
   "name": "falcor-doc-router",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Self-documenting Falcor router",
   "main": "src/index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "falcor-path-syntax": "^0.2.4",
-    "falcor-router": "^0.4.0",
+    "falcor-router": "^0.8.1",
     "react": "^15.0.1"
   },
   "devDependencies": {
